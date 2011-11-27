@@ -1,7 +1,8 @@
 " vim: set ts=4 sw=4 sts=0:
 "-----------------------------------------------------------------------------
-" Rewrite date	: 2011/11/27(UTC)
-" Author		:
+" Rewrite date : 2011/11/27(UTC)
+" Author :
+" Vim version : 7.3.154
 " 
 " この.vimrcはLinux向けです。
 "
