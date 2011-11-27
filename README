@@ -8,6 +8,6 @@ http://vim-jp.org/
 http://vim-users.jp/
 
 -------------------------------------------
-.vimrcファイルは、Linux用です。
-_vimrcファイルは、Windows用です。
-_gvimrcファイルは、Windows用です。
+.vimrcファイルは、Linux用のVimの設定ファイルです。
+_vimrcファイルは、Windows用のVimの設定ファイルです。
+_gvimrcファイルは、Windows用のgVimの設定ファイルです。
