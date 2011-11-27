@@ -1,0 +1,8 @@
+"色変更
+colorscheme eldlord
+
+"開いたら全画面
+"autocmd GUIEnter * simalt ~x
+
+"ウィンドウの初期位置指定
+"winpos 0 0
