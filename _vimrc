@@ -4,10 +4,10 @@
 " Author :
 " Vim version : 7.3.154
 " 
-" ã“ã®_vimrcã¯Windowså‘ã‘ã§ã™ã€‚
+" ‚±‚Ì_vimrc‚ÍWindowsŒü‚¯‚Å‚·B
 "
 "-----------------------------------------------------------------------------
-" æ–‡å­—ã‚³ãƒ¼ãƒ‰é–¢é€£
+" •¶šƒR[ƒhŠÖ˜A
 "
 if &encoding !=# 'utf-8'
 	set encoding=japan
@@ -16,16 +16,16 @@ endif
 if has('iconv')
 	let s:enc_euc = 'euc-jp'
 	let s:enc_jis = 'iso-2022-jp'
-	" iconvãŒeucJP-msã«å¯¾å¿œã—ã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+	" iconv‚ªeucJP-ms‚É‘Î‰‚µ‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN
 	if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
 		let s:enc_euc = 'eucjp-ms'
 		let s:enc_jis = 'iso-2022-jp-3'
-	" iconvãŒJISX0213ã«å¯¾å¿œã—ã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+	" iconv‚ªJISX0213‚É‘Î‰‚µ‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN
 	elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
 		let s:enc_euc = 'euc-jisx0213'
 		let s:enc_jis = 'iso-2022-jp-3'
 	endif
-	" fileencodingsã‚’æ§‹ç¯‰
+	" fileencodings‚ğ\’z
 	if &encoding ==# 'utf-8'
 		let s:fileencodings_default = &fileencodings
 		let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
@@ -45,11 +45,11 @@ if has('iconv')
 			let &fileencodings = &fileencodings .','. s:enc_euc
 		endif
 	endif
-	" å®šæ•°ã‚’å‡¦åˆ†
+	" ’è”‚ğˆ•ª
 	unlet s:enc_euc
 	unlet s:enc_jis
 endif
-" æ—¥æœ¬èªã‚’å«ã¾ãªã„å ´åˆã¯ fileencoding ã« encoding ã‚’ä½¿ã†ã‚ˆã†ã«ã™ã‚‹
+" “ú–{Œê‚ğŠÜ‚Ü‚È‚¢ê‡‚Í fileencoding ‚É encoding ‚ğg‚¤‚æ‚¤‚É‚·‚é
 if has('autocmd')
 	function! AU_ReCheck_FENC()
 		if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
@@ -58,19 +58,19 @@ if has('autocmd')
 	endfunction
 	autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
-" æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®è‡ªå‹•èªè­˜
+" ‰üsƒR[ƒh‚Ì©“®”F¯
 set fileformats=unix,dos,mac
-" â–¡ã¨ã‹â—‹ã®æ–‡å­—ãŒã‚ã£ã¦ã‚‚ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ãŒãšã‚Œãªã„ã‚ˆã†ã«ã™ã‚‹
+"  ‚Æ‚©›‚Ì•¶š‚ª‚ ‚Á‚Ä‚àƒJ[ƒ\ƒ‹ˆÊ’u‚ª‚¸‚ê‚È‚¢‚æ‚¤‚É‚·‚é
 if exists('&ambiwidth')
 	set ambiwidth=double
 endif
 
 "-----------------------------------------------------------------------------
-" ç·¨é›†é–¢é€£
+" •ÒWŠÖ˜A
 "
-"ã‚ªãƒ¼ãƒˆã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹
+"ƒI[ƒgƒCƒ“ƒfƒ“ƒg‚·‚é
 set autoindent
-"ãƒã‚¤ãƒŠãƒªç·¨é›†(xxd)ãƒ¢ãƒ¼ãƒ‰ï¼ˆvim -b ã§ã®èµ·å‹•ã€ã‚‚ã—ãã¯ *.bin ã§ç™ºå‹•ã—ã¾ã™ï¼‰
+"ƒoƒCƒiƒŠ•ÒW(xxd)ƒ‚[ƒhivim -b ‚Å‚Ì‹N“®A‚à‚µ‚­‚Í *.bin ‚Å”­“®‚µ‚Ü‚·j
 augroup BinaryXXD
 	autocmd!
 	autocmd BufReadPre  *.bin let &binary =1
@@ -82,63 +82,68 @@ augroup BinaryXXD
 augroup END
 
 "-----------------------------------------------------------------------------
-" æ¤œç´¢é–¢é€£
+" ŒŸõŠÖ˜A
 "
-"æ¤œç´¢æ–‡å­—åˆ—ãŒå°æ–‡å­—ã®å ´åˆã¯å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ãªãæ¤œç´¢ã™ã‚‹
+"ŒŸõ•¶š—ñ‚ª¬•¶š‚Ìê‡‚Í‘å•¶š¬•¶š‚ğ‹æ•Ê‚È‚­ŒŸõ‚·‚é
 set ignorecase
-"æ¤œç´¢æ–‡å­—åˆ—ã«å¤§æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯åŒºåˆ¥ã—ã¦æ¤œç´¢ã™ã‚‹
+"ŒŸõ•¶š—ñ‚É‘å•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚Í‹æ•Ê‚µ‚ÄŒŸõ‚·‚é
 set smartcase
-"æ¤œç´¢æ™‚ã«æœ€å¾Œã¾ã§è¡Œã£ãŸã‚‰æœ€åˆã«æˆ»ã‚‹
+"ŒŸõ‚ÉÅŒã‚Ü‚Ås‚Á‚½‚çÅ‰‚É–ß‚é
 set wrapscan
-"æ¤œç´¢æ–‡å­—åˆ—å…¥åŠ›æ™‚ã«é †æ¬¡å¯¾è±¡æ–‡å­—åˆ—ã«ãƒ’ãƒƒãƒˆã•ã›ãªã„
+"ŒŸõ•¶š—ñ“ü—Í‚É‡Ÿ‘ÎÛ•¶š—ñ‚Éƒqƒbƒg‚³‚¹‚È‚¢
 set noincsearch
 
 "-----------------------------------------------------------------------------
-" è£…é£¾é–¢é€£
+" ‘•üŠÖ˜A
 "
-"ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹
+"ƒVƒ“ƒ^ƒbƒNƒXƒnƒCƒ‰ƒCƒg‚ğ—LŒø‚É‚·‚é
 if has("syntax")
 	syntax on
 endif
-"è¡Œç•ªå·ã‚’è¡¨ç¤ºã™ã‚‹
+"s”Ô†‚ğ•\¦‚·‚é
 set number
-"ã‚¿ãƒ–ã®å·¦å´ã«ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
+"ƒ^ƒu‚Ì¶‘¤‚ÉƒJ[ƒ\ƒ‹•\¦
 set listchars=tab:\ \ 
 set list
-"ã‚¿ãƒ–å¹…ã‚’è¨­å®šã™ã‚‹
+"ƒ^ƒu•‚ğİ’è‚·‚é
 set tabstop=4
 set shiftwidth=4
-"å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã«è¡¨ç¤ºã™ã‚‹
+"“ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚ğƒXƒe[ƒ^ƒX‚É•\¦‚·‚é
 set showcmd
-"æ‹¬å¼§å…¥åŠ›æ™‚ã®å¯¾å¿œã™ã‚‹æ‹¬å¼§ã‚’è¡¨ç¤º
+"Š‡ŒÊ“ü—Í‚Ì‘Î‰‚·‚éŠ‡ŒÊ‚ğ•\¦
 set showmatch
-"æ¤œç´¢çµæœæ–‡å­—åˆ—ã®ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹
+"ŒŸõŒ‹‰Ê•¶š—ñ‚ÌƒnƒCƒ‰ƒCƒg‚ğ—LŒø‚É‚·‚é
 set hlsearch
-"ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã‚’å¸¸ã«è¡¨ç¤º
+"ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ğí‚É•\¦
 set laststatus=2
-"ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã«æ–‡å­—ã‚³ãƒ¼ãƒ‰ã¨æ”¹è¡Œæ–‡å­—ã‚’è¡¨ç¤ºã™ã‚‹
+"ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚É•¶šƒR[ƒh‚Æ‰üs•¶š‚ğ•\¦‚·‚é
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
-
 "-----------------------------------------------------------------------------
-" ãƒãƒƒãƒ—å®šç¾©
+" ƒ}ƒbƒv’è‹`
 "
-"ãƒãƒƒãƒ•ã‚¡ç§»å‹•ç”¨ã‚­ãƒ¼ãƒãƒƒãƒ—
-" F2: å‰ã®ãƒãƒƒãƒ•ã‚¡
-" F3: æ¬¡ã®ãƒãƒƒãƒ•ã‚¡
-" F4: ãƒãƒƒãƒ•ã‚¡å‰Šé™¤
+"ƒoƒbƒtƒ@ˆÚ“®—pƒL[ƒ}ƒbƒv
+" F2: ‘O‚Ìƒoƒbƒtƒ@
+" F3: Ÿ‚Ìƒoƒbƒtƒ@
+" F4: ƒoƒbƒtƒ@íœ
 map <F2> <ESC>:bp<CR>
 map <F3> <ESC>:bn<CR>
 map <F4> <ESC>:bw<CR>
-"è¡¨ç¤ºè¡Œå˜ä½ã§è¡Œç§»å‹•ã™ã‚‹
+"•\¦s’PˆÊ‚ÅsˆÚ“®‚·‚é
 nnoremap j gj
 nnoremap k gk
-"ãƒ•ãƒ¬ãƒ¼ãƒ ã‚µã‚¤ã‚ºã‚’æ€ æƒ°ã«å¤‰æ›´ã™ã‚‹
+"ƒtƒŒ[ƒ€ƒTƒCƒY‚ğ‘Ó‘Ä‚É•ÏX‚·‚é
 map <kPlus> <C-W>+
 map <kMinus> <C-W>-
 
-"_vimrcã‚’é–‹ã
+" ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹(filename~)‚ğì¬‚·‚éƒtƒHƒ‹ƒ_‚Ìw’è
+set backupdir=E:\temp
+
+" ƒXƒƒbƒvƒtƒ@ƒCƒ‹(filename.swp)‚ğì¬‚·‚éƒtƒHƒ‹ƒ_‚Ìw’è
+set directory=E:\temp
+
+"_vimrc‚ğŠJ‚­
 nnoremap <Space>. : <C-u>edit $MYVIMRC<Enter>
 
-"_vimrcã‚’èª­ã¿è¾¼ã‚€
+"_vimrc‚ğ“Ç‚İ‚Ş
 nnoremap <Space>s. : <C-u>source $MYVIMRC<Enter>
