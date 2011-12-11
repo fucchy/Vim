@@ -147,3 +147,27 @@ nnoremap <Space>. : <C-u>edit $MYVIMRC<Enter>
 
 "_vimrcを読み込む
 nnoremap <Space>s. : <C-u>source $MYVIMRC<Enter>
+
+" バイナリエディタにしたくて下記を追加したけど、あんまり使ってない
+" vim -b : edit binary using xxd-format!
+augroup Binary
+    au!
+	au BufReadPre   *.bin let &bin=1
+	au BufReadPost  *.bin if &bin | %!xxd
+	au BufReadPost  *.bin set ft=xxd | endif
+	au BufWritePre  *.bin if &bin | %!xxd -r
+	au BufWritePre  *.bin endif
+	au BufWritePost *.bin if &bin | %!xxd
+	au BufWritePost *.bin set nomod | endif
+augroup END
+
+augroup Binary
+    au!
+	au BufReadPre   *.img let &bin=1
+	au BufReadPost  *.img if &bin | %!xxd
+	au BufReadPost  *.img set ft=xxd | endif
+	au BufWritePre  *.img if &bin | %!xxd -r
+	au BufWritePre  *.img endif
+	au BufWritePost *.img if &bin | %!xxd
+	au BufWritePost *.img set nomod | endif
+augroup END
