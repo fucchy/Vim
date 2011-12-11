@@ -12,5 +12,5 @@ http://vim-users.jp/
 _vimrcファイルは、VimのWindows用設定ファイルです。
 _gvimrcファイルは、gVimのWindows用設定ファイルです。
 
-上記ファイルでの符号化方式はUTF-8です。
+上記ファイルで採用している符号化方式はUTF-8です。
 
