@@ -1,10 +1,8 @@
 " vim: set ts=4 sw=4 sts=0:
 "-----------------------------------------------------------------------------
-" Rewrite date : 2011/11/28(UTC)
-" Author :
 " Vim version : 7.3.154
 " 
-" この_vimrcはWindows向けです。
+" この_vimrcファイルはWindows用です。
 "
 "-----------------------------------------------------------------------------
 " 文字コード関連
@@ -135,6 +133,8 @@ nnoremap k gk
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
 map <kMinus> <C-W>-
+
+colorcheme darkblue
 
 " バックアップファイル(filename~)を作成するフォルダの指定
 set backupdir=E:\temp
