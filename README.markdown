@@ -1,9 +1,9 @@
-README.markdown
-===============
+Vim
+===
 
-za
+> Vimの設定ファイルなどを保存しておくところ
 
-test
+参考URIs
 ----
 
 公式サイト  
@@ -15,7 +15,7 @@ http://vim-jp.org/
 日本のVimユーザのためのハブサイト  
 http://vim-users.jp/
 
-test
+NOTE
 ----
 
 .vimrcファイルは、VimのLinux用設定ファイルです。  
