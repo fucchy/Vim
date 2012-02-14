@@ -1,5 +1,5 @@
 test
-----'s
+----
 
 公式サイト  
 http://www.vim.org/
