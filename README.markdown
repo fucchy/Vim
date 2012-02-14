@@ -1,7 +1,7 @@
 README.markdown
 ===============
 
-- a markdown file
+ 
 
 test
 ----
