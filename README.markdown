@@ -7,6 +7,7 @@ http://vim-jp.org/
 日本のVimユーザのためのハブサイト  
 http://vim-users.jp/
 
+# test #
 ---
 
 .vimrcファイルは、VimのLinux用設定ファイルです。  
