@@ -1,7 +1,7 @@
 README.markdown
 ===============
 
-..
+z
 
 test
 ----
