@@ -1,3 +1,6 @@
+test
+====
+
 公式サイト  
 http://www.vim.org/
 
@@ -7,7 +10,8 @@ http://vim-jp.org/
 日本のVimユーザのためのハブサイト  
 http://vim-users.jp/
 
-# test #
+
+---
 
 .vimrcファイルは、VimのLinux用設定ファイルです。  
 _vimrcファイルは、VimのWindows用設定ファイルです。  
