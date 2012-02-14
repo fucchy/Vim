@@ -1,4 +1,5 @@
-__参考URIs__
+参考URIs
+--------
 
 公式サイト  
 http://www.vim.org/
