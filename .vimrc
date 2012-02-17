@@ -1,5 +1,4 @@
 " vim: set ts=4 sw=4 sts=0:
-"
 "-----------------------------------------------------------------------------
 " Vim version : 7.3.154
 " 
@@ -8,8 +7,9 @@
 "-----------------------------------------------------------------------------
 "
 " http://www.kawaz.jp/pukiwiki/?vim
-" から抜粋、適宜改変させて頂きました
+" から抜粋、改変しました
 "
+"-----------------------------------------------------------------------------
 "
 " 文字コード関連
 "
@@ -110,8 +110,9 @@ set number
 set listchars=tab:\ \ 
 set list
 "タブ幅を設定する
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set expandtab
 "入力中のコマンドをステータスに表示する
 set showcmd
 "括弧入力時の対応する括弧を表示
@@ -140,6 +141,8 @@ nnoremap k gk
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
 map <kMinus> <C-W>-
+
+colorscheme delek 
 
 ".vimrcを開く
 nnoremap <Space>. : <C-u>edit $MYVIMRC<Enter>
