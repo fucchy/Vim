@@ -181,3 +181,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/zencoding-vim'
 
 filetype plugin indent on
+
+" mattn/zencoding-vim
+let g:user_zen_settings={'lang':'ja'}
+
