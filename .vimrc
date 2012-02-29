@@ -1,3 +1,5 @@
+set nocompatible
+
 "==============================================================
 " 文字コードの自動認識プラグイン
 " recognize_charcode.vim
@@ -162,3 +164,20 @@ set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 "オートインデントする
 set autoindent
+
+" Configure bundles for Shougo/neobundle.vim
+filetype plugin indent off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vinarise'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'mattn/zencoding-vim'
+
+filetype plugin indent on
